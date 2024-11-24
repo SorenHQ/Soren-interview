@@ -1,0 +1,3 @@
+# ignore react build files
+node_modules/
+dist/
