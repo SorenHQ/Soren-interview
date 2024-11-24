@@ -16,3 +16,11 @@ To start with, we have a styled todo list that supports adding todos. We also ha
 2. Add hidden timestamps to todos (created_at, completed_at), these will be used for sorting
   - The active todos should be sorted by created_at descending
   - The completed todos should be sorted by completed_at ascending
+
+## How to run
+
+This will install the npm packages and start the development server on port 3000 by default.
+
+```bash
+./run.sh
+```
