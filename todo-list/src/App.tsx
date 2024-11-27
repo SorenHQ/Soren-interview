@@ -20,25 +20,25 @@ const Wrapper = styled.div({
  * and restore on page load. This will give us
  * persistent storage.
  */
-const initialData: Todo[] = [
-  {
-    id: uuid(),
-    label: "Buy groceries",
-    checked: false,
-  },
-  {
-    id: uuid(),
-    label: "Reboot computer",
-    checked: false,
-  },
-  {
-    id: uuid(),
-    label: "Ace CoderPad interview",
-    checked: true,
-  },
-];
 
 function App() {
+  const [initialData, setTodo] = useState<Todo[]>([
+    {
+      id: uuid(),
+      label: "Buy groceries",
+      checked: false,
+    },
+    {
+      id: uuid(),
+      label: "Reboot computer",
+      checked: false,
+    },
+    {
+      id: uuid(),
+      label: "Ace CoderPad interview",
+      checked: true,
+    },
+  ]);
   const [todos, setTodos] = useState<Todo[]>(initialData);
 
   const addTodo = useCallback((label: string) => {
@@ -52,8 +52,18 @@ function App() {
     ]);
   }, []);
 
-  const handleChange = useCallback((checked: boolean) => {
+  const handleChange = useCallback((checked: boolean, id: string) => {
     // handle the check/uncheck logic
+    const nextCounters = todos.map((todo) => {
+      if (todo.id === id) {
+        todo.checked = checked;
+        return todo;
+      } else {
+        // The rest haven't changed
+        return todo;
+      }
+    });
+    setTodo(nextCounters);
   }, []);
 
   return (
