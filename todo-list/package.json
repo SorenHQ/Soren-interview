@@ -19,7 +19,7 @@
     "vite": "^3.0.4"
   },
   "scripts": {
-    "build": "vite build",
+    "build": "vite build --watch ",
     "serve": "vite preview"
   }
 }
